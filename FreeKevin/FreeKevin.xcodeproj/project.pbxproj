@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C67AD011AAD3469008CD804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD001AAD3469008CD804 /* AppDelegate.swift */; };
+		8C67AD031AAD3469008CD804 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD021AAD3469008CD804 /* HomeViewController.swift */; };
+		8C67AD061AAD3469008CD804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C67AD041AAD3469008CD804 /* Main.storyboard */; };
+		8C67AD081AAD3469008CD804 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C67AD071AAD3469008CD804 /* Images.xcassets */; };
+		8C67AD0B1AAD3469008CD804 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C67AD091AAD3469008CD804 /* LaunchScreen.xib */; };
+		8C67AD171AAD346A008CD804 /* FreeKevinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD161AAD346A008CD804 /* FreeKevinTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8C67AD111AAD346A008CD804 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C67ACF31AAD3469008CD804 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C67ACFA1AAD3469008CD804;
+			remoteInfo = FreeKevin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8C67ACFB1AAD3469008CD804 /* FreeKevin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeKevin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C67ACFF1AAD3469008CD804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C67AD001AAD3469008CD804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8C67AD021AAD3469008CD804 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8C67AD051AAD3469008CD804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C67AD071AAD3469008CD804 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8C67AD0A1AAD3469008CD804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8C67AD101AAD346A008CD804 /* FreeKevinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreeKevinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C67AD151AAD346A008CD804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C67AD161AAD346A008CD804 /* FreeKevinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeKevinTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C67ACF81AAD3469008CD804 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C67AD0D1AAD346A008CD804 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C67ACF21AAD3469008CD804 = {
+			isa = PBXGroup;
+			children = (
+				8C67ACFD1AAD3469008CD804 /* FreeKevin */,
+				8C67AD131AAD346A008CD804 /* FreeKevinTests */,
+				8C67ACFC1AAD3469008CD804 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C67ACFC1AAD3469008CD804 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C67ACFB1AAD3469008CD804 /* FreeKevin.app */,
+				8C67AD101AAD346A008CD804 /* FreeKevinTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C67ACFD1AAD3469008CD804 /* FreeKevin */ = {
+			isa = PBXGroup;
+			children = (
+				8C67AD001AAD3469008CD804 /* AppDelegate.swift */,
+				8C67AD021AAD3469008CD804 /* HomeViewController.swift */,
+				8C67AD041AAD3469008CD804 /* Main.storyboard */,
+				8C67AD071AAD3469008CD804 /* Images.xcassets */,
+				8C67AD091AAD3469008CD804 /* LaunchScreen.xib */,
+				8C67ACFE1AAD3469008CD804 /* Supporting Files */,
+			);
+			path = FreeKevin;
+			sourceTree = "<group>";
+		};
+		8C67ACFE1AAD3469008CD804 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C67ACFF1AAD3469008CD804 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C67AD131AAD346A008CD804 /* FreeKevinTests */ = {
+			isa = PBXGroup;
+			children = (
+				8C67AD161AAD346A008CD804 /* FreeKevinTests.swift */,
+				8C67AD141AAD346A008CD804 /* Supporting Files */,
+			);
+			path = FreeKevinTests;
+			sourceTree = "<group>";
+		};
+		8C67AD141AAD346A008CD804 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C67AD151AAD346A008CD804 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C67ACFA1AAD3469008CD804 /* FreeKevin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C67AD1A1AAD346A008CD804 /* Build configuration list for PBXNativeTarget "FreeKevin" */;
+			buildPhases = (
+				8C67ACF71AAD3469008CD804 /* Sources */,
+				8C67ACF81AAD3469008CD804 /* Frameworks */,
+				8C67ACF91AAD3469008CD804 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FreeKevin;
+			productName = FreeKevin;
+			productReference = 8C67ACFB1AAD3469008CD804 /* FreeKevin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8C67AD0F1AAD346A008CD804 /* FreeKevinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C67AD1D1AAD346A008CD804 /* Build configuration list for PBXNativeTarget "FreeKevinTests" */;
+			buildPhases = (
+				8C67AD0C1AAD346A008CD804 /* Sources */,
+				8C67AD0D1AAD346A008CD804 /* Frameworks */,
+				8C67AD0E1AAD346A008CD804 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C67AD121AAD346A008CD804 /* PBXTargetDependency */,
+			);
+			name = FreeKevinTests;
+			productName = FreeKevinTests;
+			productReference = 8C67AD101AAD346A008CD804 /* FreeKevinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C67ACF31AAD3469008CD804 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Naomi Himley";
+				TargetAttributes = {
+					8C67ACFA1AAD3469008CD804 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					8C67AD0F1AAD346A008CD804 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 8C67ACFA1AAD3469008CD804;
+					};
+				};
+			};
+			buildConfigurationList = 8C67ACF61AAD3469008CD804 /* Build configuration list for PBXProject "FreeKevin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C67ACF21AAD3469008CD804;
+			productRefGroup = 8C67ACFC1AAD3469008CD804 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C67ACFA1AAD3469008CD804 /* FreeKevin */,
+				8C67AD0F1AAD346A008CD804 /* FreeKevinTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C67ACF91AAD3469008CD804 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C67AD061AAD3469008CD804 /* Main.storyboard in Resources */,
+				8C67AD0B1AAD3469008CD804 /* LaunchScreen.xib in Resources */,
+				8C67AD081AAD3469008CD804 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C67AD0E1AAD346A008CD804 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C67ACF71AAD3469008CD804 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C67AD031AAD3469008CD804 /* HomeViewController.swift in Sources */,
+				8C67AD011AAD3469008CD804 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C67AD0C1AAD346A008CD804 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C67AD171AAD346A008CD804 /* FreeKevinTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C67AD121AAD346A008CD804 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C67ACFA1AAD3469008CD804 /* FreeKevin */;
+			targetProxy = 8C67AD111AAD346A008CD804 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8C67AD041AAD3469008CD804 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C67AD051AAD3469008CD804 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8C67AD091AAD3469008CD804 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C67AD0A1AAD3469008CD804 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C67AD181AAD346A008CD804 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C67AD191AAD346A008CD804 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C67AD1B1AAD346A008CD804 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FreeKevin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8C67AD1C1AAD346A008CD804 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FreeKevin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8C67AD1E1AAD346A008CD804 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FreeKevinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FreeKevin.app/FreeKevin";
+			};
+			name = Debug;
+		};
+		8C67AD1F1AAD346A008CD804 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FreeKevinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FreeKevin.app/FreeKevin";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C67ACF61AAD3469008CD804 /* Build configuration list for PBXProject "FreeKevin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C67AD181AAD346A008CD804 /* Debug */,
+				8C67AD191AAD346A008CD804 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C67AD1A1AAD346A008CD804 /* Build configuration list for PBXNativeTarget "FreeKevin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C67AD1B1AAD346A008CD804 /* Debug */,
+				8C67AD1C1AAD346A008CD804 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8C67AD1D1AAD346A008CD804 /* Build configuration list for PBXNativeTarget "FreeKevinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C67AD1E1AAD346A008CD804 /* Debug */,
+				8C67AD1F1AAD346A008CD804 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C67ACF31AAD3469008CD804 /* Project object */;
+}
