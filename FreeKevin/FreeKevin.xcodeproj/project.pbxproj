@@ -62,6 +62,8 @@
 		8C67AD241AAD4D75008CD804 /* FreeKevinKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FreeKevinKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C67AD271AAD4D75008CD804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C67AD281AAD4D75008CD804 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		8C6E474C1AAEAC84002E22B0 /* FreeKevin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FreeKevin.entitlements; sourceTree = "<group>"; };
+		8C6E474D1AAEACDA002E22B0 /* FreeKevinKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FreeKevinKeyboard.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		8C67ACFD1AAD3469008CD804 /* FreeKevin */ = {
 			isa = PBXGroup;
 			children = (
+				8C6E474C1AAEAC84002E22B0 /* FreeKevin.entitlements */,
 				8C67AD001AAD3469008CD804 /* AppDelegate.swift */,
 				8C67AD021AAD3469008CD804 /* HomeViewController.swift */,
 				8C67AD041AAD3469008CD804 /* Main.storyboard */,
@@ -150,6 +153,7 @@
 		8C67AD251AAD4D75008CD804 /* FreeKevinKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				8C6E474D1AAEACDA002E22B0 /* FreeKevinKeyboard.entitlements */,
 				8C67AD281AAD4D75008CD804 /* KeyboardViewController.swift */,
 				8C67AD261AAD4D75008CD804 /* Supporting Files */,
 			);
@@ -232,6 +236,12 @@
 				TargetAttributes = {
 					8C67ACFA1AAD3469008CD804 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = CF4F3Y3JFY;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					8C67AD0F1AAD346A008CD804 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -239,6 +249,12 @@
 					};
 					8C67AD231AAD4D75008CD804 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = CF4F3Y3JFY;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -433,10 +449,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FreeKevin/FreeKevin.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FreeKevin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -444,10 +464,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FreeKevin/FreeKevin.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FreeKevin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -488,6 +512,9 @@
 		8C67AD2E1AAD4D75008CD804 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FreeKevinKeyboard/FreeKevinKeyboard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -495,6 +522,7 @@
 				INFOPLIST_FILE = FreeKevinKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -502,9 +530,13 @@
 		8C67AD2F1AAD4D75008CD804 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FreeKevinKeyboard/FreeKevinKeyboard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FreeKevinKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -528,6 +560,7 @@
 				8C67AD1C1AAD346A008CD804 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C67AD1D1AAD346A008CD804 /* Build configuration list for PBXNativeTarget "FreeKevinTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +569,7 @@
 				8C67AD1F1AAD346A008CD804 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C67AD2D1AAD4D75008CD804 /* Build configuration list for PBXNativeTarget "FreeKevinKeyboard" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +578,7 @@
 				8C67AD2F1AAD4D75008CD804 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
