@@ -9,39 +9,60 @@
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
+    let rowOneButtonTitles = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
+    let rowTwoButtonTitles = ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"]
+    let rowThreeButtonTitles = ["^", "Z", "X", "C", "V", "B", "N", "M", "🔙"]
+    let rowFourButtonTitles = ["space", "return"]
 
     @IBOutlet var nextKeyboardButton: UIButton!
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
     
-        // Add custom view sizing constraints here
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setButtonTitles()
+    }
     
-        // Perform custom UI setup here
+    //MARK: - UI Setup -
+
+    func setButtonTitles () {
+        // set way to get back to regular keyboard
         self.nextKeyboardButton = UIButton.buttonWithType(.System) as UIButton
-    
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), forState: .Normal)
+        self.nextKeyboardButton.setTitle("🌐", forState: .Normal)
         self.nextKeyboardButton.sizeToFit()
         self.nextKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-    
         self.nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
-        
         self.view.addSubview(self.nextKeyboardButton)
+        
+        // add the rest of the buttons
+        let arrayOfRows = [rowOneButtonTitles, rowTwoButtonTitles, rowThreeButtonTitles, rowFourButtonTitles]
+
+        var previousButton = self.view
+        var incrementingX = CGFloat(0)
+        var incrementingY = CGFloat(0)
+        for row in arrayOfRows {
+            for title in row {
+                let currentButton = UIButton(frame: CGRectMake(incrementingX, incrementingY, 35, 35))
+                currentButton.setTitle(title, forState: .Normal)
+                currentButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+                currentButton.backgroundColor = UIColor.redColor()
+                //add it to the subview
+                self.view.addSubview(currentButton)
+                //TODO: add constraints and Target
+                //update the incrementing variables
+                incrementingX += CGRectGetWidth(currentButton.frame)
+                previousButton = currentButton;
+            }
+            incrementingY += 35;
+            incrementingX = 0;
+        }
+    }
+
+    //MARK: - Stock Text Methods -
     
-        var nextKeyboardButtonLeftSideConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0)
-        var nextKeyboardButtonBottomConstraint = NSLayoutConstraint(item: self.nextKeyboardButton, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
-        self.view.addConstraints([nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint])
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated
-    }
-
     override func textWillChange(textInput: UITextInput) {
         // The app is about to change the document's contents. Perform any preparation here.
     }
