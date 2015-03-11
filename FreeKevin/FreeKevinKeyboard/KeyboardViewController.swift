@@ -9,6 +9,7 @@
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
+    let buttonSpacing = CGFloat(5)
     let rowOneButtonTitles = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
     let rowTwoButtonTitles = ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"]
     let rowThreeButtonTitles = ["^", "Z", "X", "C", "V", "B", "N", "M", "🔙"]
@@ -44,8 +45,9 @@ class KeyboardViewController: UIInputViewController {
         var incrementingX = CGFloat(0)
         var incrementingY = CGFloat(0)
         for row in arrayOfRows {
+            let buttonWidth = (UIScreen.mainScreen().bounds.width / CGFloat(row.count))
             for title in row {
-                let currentButton = UIButton(frame: CGRectMake(incrementingX, incrementingY, 35, 35))
+                let currentButton = UIButton(frame: CGRectMake(incrementingX, incrementingY, buttonWidth, buttonWidth))
                 currentButton.setTitle(title, forState: .Normal)
                 currentButton.setTranslatesAutoresizingMaskIntoConstraints(false)
                 currentButton.backgroundColor = UIColor.redColor()
@@ -53,8 +55,8 @@ class KeyboardViewController: UIInputViewController {
                 self.view.addSubview(currentButton)
                 //TODO: add constraints and Target
                 //update the incrementing variables
-                incrementingX += CGRectGetWidth(currentButton.frame)
-                previousButton = currentButton;
+                incrementingX += buttonWidth + buttonSpacing
+                previousButton = currentButton
             }
             incrementingY += 35;
             incrementingX = 0;
