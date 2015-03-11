@@ -13,9 +13,7 @@ class KeyboardViewController: UIInputViewController {
     let rowOneButtonTitles = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
     let rowTwoButtonTitles = ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"]
     let rowThreeButtonTitles = ["^", "Z", "X", "C", "V", "B", "N", "M", "🔙"]
-    let rowFourButtonTitles = ["space", "return"]
-
-    @IBOutlet var nextKeyboardButton: UIButton!
+    let rowFourButtonTitles = ["🌐", "space", "return"]
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -30,39 +28,53 @@ class KeyboardViewController: UIInputViewController {
     //MARK: - UI Setup -
 
     func setButtonTitles () {
-        // set way to get back to regular keyboard
-        self.nextKeyboardButton = UIButton.buttonWithType(.System) as UIButton
-        self.nextKeyboardButton.setTitle("🌐", forState: .Normal)
-        self.nextKeyboardButton.sizeToFit()
-        self.nextKeyboardButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
-        self.view.addSubview(self.nextKeyboardButton)
-        
-        // add the rest of the buttons
         let arrayOfRows = [rowOneButtonTitles, rowTwoButtonTitles, rowThreeButtonTitles, rowFourButtonTitles]
 
         var previousButton = self.view
-        var incrementingX = CGFloat(0)
-        var incrementingY = CGFloat(0)
+        var incrementingX = buttonSpacing
+        var incrementingY = buttonSpacing
+        var rowIndex = 0
         for row in arrayOfRows {
-            let buttonWidth = (UIScreen.mainScreen().bounds.width / CGFloat(row.count))
+            let buttonWidth = (CGRectGetWidth(UIScreen.mainScreen().bounds) - buttonSpacing * CGFloat(row.count)) / CGFloat(row.count)
             for title in row {
-                let currentButton = UIButton(frame: CGRectMake(incrementingX, incrementingY, buttonWidth, buttonWidth))
-                currentButton.setTitle(title, forState: .Normal)
-                currentButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-                currentButton.backgroundColor = UIColor.redColor()
-                //add it to the subview
-                self.view.addSubview(currentButton)
-                //TODO: add constraints and Target
-                //update the incrementing variables
+                if rowIndex == arrayOfRows.count - 1 {
+                    if (title == "🌐") {
+                        // set way to get back to regular keyboard
+                        let nextKeyboardButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth)
+                        self.view.addSubview(nextKeyboardButton)
+                        nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
+                        previousButton = nextKeyboardButton
+                    }
+                    else {
+                        //TODO: set up the space bar and the return key
+                        let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth)
+                        self.view.addSubview(currentButton)
+                        previousButton = currentButton
+                    }
+                }
+                else {
+                    let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth)
+                    self.view.addSubview(currentButton)
+                    currentButton.addTarget(self, action:"didTapButton:", forControlEvents: .TouchUpInside)
+                    previousButton = currentButton
+                }
                 incrementingX += buttonWidth + buttonSpacing
-                previousButton = currentButton
             }
-            incrementingY += 35;
-            incrementingX = 0;
+            incrementingY += buttonWidth + buttonSpacing
+            incrementingX = buttonSpacing
+            rowIndex++
         }
     }
-
+    func createButtonWithTitle(title: String, x: CGFloat, y: CGFloat, width:CGFloat) -> UIButton {
+        let button = UIButton(frame: CGRectMake(x, y, width, width))
+        button.layer.cornerRadius = buttonSpacing;
+        button.clipsToBounds = true;
+        button.setTitle(title, forState: .Normal)
+        button.setTranslatesAutoresizingMaskIntoConstraints(false)
+        button.backgroundColor = UIColor.grayColor()
+        return button
+    }
+    
     //MARK: - Stock Text Methods -
     
     override func textWillChange(textInput: UITextInput) {
@@ -79,7 +91,14 @@ class KeyboardViewController: UIInputViewController {
         } else {
             textColor = UIColor.blackColor()
         }
-        self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
+    }
+    func didTapButton(sender: AnyObject?) {
+        
+        let button = sender as UIButton
+        let title = button.titleForState(.Normal)
+        var proxy = textDocumentProxy as UITextDocumentProxy
+        
+        proxy.insertText(title!)
     }
 
 }
