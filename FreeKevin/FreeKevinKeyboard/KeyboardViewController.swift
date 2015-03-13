@@ -14,6 +14,7 @@ class KeyboardViewController: UIInputViewController {
     let rowTwoButtonTitles = ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"]
     let rowThreeButtonTitles = ["^", "Z", "X", "C", "V", "B", "N", "M", "🔙"]
     let rowFourButtonTitles = ["🌐", "space", "return"]
+    var shiftKeyToggle = false
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -37,27 +38,10 @@ class KeyboardViewController: UIInputViewController {
         for row in arrayOfRows {
             let buttonWidth = (CGRectGetWidth(UIScreen.mainScreen().bounds) - buttonSpacing * CGFloat(row.count)) / CGFloat(row.count)
             for title in row {
-                if rowIndex == arrayOfRows.count - 1 {
-                    if (title == "🌐") {
-                        // set way to get back to regular keyboard
-                        let nextKeyboardButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth)
-                        self.view.addSubview(nextKeyboardButton)
-                        nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
-                        previousButton = nextKeyboardButton
-                    }
-                    else {
-                        //TODO: set up the space bar and the return key
-                        let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth)
-                        self.view.addSubview(currentButton)
-                        previousButton = currentButton
-                    }
-                }
-                else {
-                    let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth)
-                    self.view.addSubview(currentButton)
-                    currentButton.addTarget(self, action:"didTapButton:", forControlEvents: .TouchUpInside)
-                    previousButton = currentButton
-                }
+                let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth)
+                self.view.addSubview(currentButton)
+                currentButton.addTarget(self, action:"didTapButton:", forControlEvents: .TouchUpInside)
+                previousButton = currentButton
                 incrementingX += buttonWidth + buttonSpacing
             }
             incrementingY += buttonWidth + buttonSpacing
@@ -65,6 +49,7 @@ class KeyboardViewController: UIInputViewController {
             rowIndex++
         }
     }
+    
     func createButtonWithTitle(title: String, x: CGFloat, y: CGFloat, width:CGFloat) -> UIButton {
         let button = UIButton(frame: CGRectMake(x, y, width, width))
         button.layer.cornerRadius = buttonSpacing;
@@ -82,23 +67,37 @@ class KeyboardViewController: UIInputViewController {
     }
 
     override func textDidChange(textInput: UITextInput) {
-        // The app has just changed the document's contents, the document context has been updated.
-    
         var textColor: UIColor
         var proxy = self.textDocumentProxy as UITextDocumentProxy
         if proxy.keyboardAppearance == UIKeyboardAppearance.Dark {
             textColor = UIColor.whiteColor()
-        } else {
+        }
+        else {
             textColor = UIColor.blackColor()
         }
     }
+    
     func didTapButton(sender: AnyObject?) {
-        
         let button = sender as UIButton
-        let title = button.titleForState(.Normal)
         var proxy = textDocumentProxy as UITextDocumentProxy
-        
-        proxy.insertText(title!)
+        let title = button.titleForState(.Normal)!
+        switch title {
+        case "^" :
+            button.backgroundColor = shiftKeyToggle ? UIColor.grayColor() : UIColor.whiteColor()
+            button.setTitleColor(shiftKeyToggle ? UIColor.whiteColor() : UIColor.blackColor(), forState: .Normal)
+            shiftKeyToggle = !shiftKeyToggle
+        case "🌐" : //change keyboards
+            self.advanceToNextInputMode()
+        case "🔙" :
+            proxy.deleteBackward()
+        case "space" :
+            proxy.insertText(" ")
+        case "return" :
+            proxy.insertText("\n")
+        default :
+            var titleCapsOrNot = String()
+            titleCapsOrNot = shiftKeyToggle ? title.uppercaseString : title.lowercaseString
+            proxy.insertText(titleCapsOrNot)
+        }
     }
-
 }
