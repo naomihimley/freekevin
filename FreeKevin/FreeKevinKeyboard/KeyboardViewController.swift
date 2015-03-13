@@ -30,15 +30,19 @@ class KeyboardViewController: UIInputViewController {
 
     func setButtonTitles () {
         let arrayOfRows = [rowOneButtonTitles, rowTwoButtonTitles, rowThreeButtonTitles, rowFourButtonTitles]
-
-        var previousButton = self.view
+        var previousButton = self.view //for constraints
         var incrementingX = buttonSpacing
         var incrementingY = buttonSpacing
         var rowIndex = 0
+        var buttonHeight = CGFloat()
         for row in arrayOfRows {
             let buttonWidth = (CGRectGetWidth(UIScreen.mainScreen().bounds) - buttonSpacing * CGFloat(row.count)) / CGFloat(row.count)
+            //base the button height on first row width
+            if rowIndex == 0 {
+                buttonHeight = buttonWidth
+            }
             for title in row {
-                let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth)
+                let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth, height:buttonHeight)
                 self.view.addSubview(currentButton)
                 currentButton.addTarget(self, action:"didTapButton:", forControlEvents: .TouchUpInside)
                 previousButton = currentButton
@@ -50,8 +54,8 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
-    func createButtonWithTitle(title: String, x: CGFloat, y: CGFloat, width:CGFloat) -> UIButton {
-        let button = UIButton(frame: CGRectMake(x, y, width, width))
+    func createButtonWithTitle(title: String, x: CGFloat, y: CGFloat, width:CGFloat, height:CGFloat) -> UIButton {
+        let button = UIButton(frame: CGRectMake(x, y, width, height))
         button.layer.cornerRadius = buttonSpacing;
         button.clipsToBounds = true;
         button.setTitle(title, forState: .Normal)
