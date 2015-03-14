@@ -13,8 +13,9 @@ class KeyboardViewController: UIInputViewController {
     let rowOneButtonTitles = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
     let rowTwoButtonTitles = ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"]
     let rowThreeButtonTitles = ["^", "Z", "X", "C", "V", "B", "N", "M", "🔙"]
-    let rowFourButtonTitles = ["🌐", "space", "return"]
+    let rowFourButtonTitles = ["🌐", "space", "return", "advanced"]
     var shiftKeyToggle = false
+    var advancedToggle = false
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -27,6 +28,8 @@ class KeyboardViewController: UIInputViewController {
     }
     
     //MARK: - UI Setup -
+    
+    //TODO: Update spacing to calculate better and add constraints
 
     func setButtonTitles () {
         let arrayOfRows = [rowOneButtonTitles, rowTwoButtonTitles, rowThreeButtonTitles, rowFourButtonTitles]
@@ -48,14 +51,14 @@ class KeyboardViewController: UIInputViewController {
                 previousButton = currentButton
                 incrementingX += buttonWidth + buttonSpacing
             }
-            incrementingY += buttonWidth + buttonSpacing
+            incrementingY += buttonWidth + buttonSpacing * 5
             incrementingX = buttonSpacing
             rowIndex++
         }
     }
     
     func createButtonWithTitle(title: String, x: CGFloat, y: CGFloat, width:CGFloat, height:CGFloat) -> UIButton {
-        let button = UIButton(frame: CGRectMake(x, y, width, height))
+        let button = UIButton(frame: CGRectMake(x, y, width, height + buttonSpacing * 3))
         button.layer.cornerRadius = buttonSpacing;
         button.clipsToBounds = true;
         button.setTitle(title, forState: .Normal)
@@ -98,10 +101,75 @@ class KeyboardViewController: UIInputViewController {
             proxy.insertText(" ")
         case "return" :
             proxy.insertText("\n")
+        case "advanced" :
+            button.backgroundColor = advancedToggle ? UIColor.grayColor() : UIColor.whiteColor()
+            button.setTitleColor(advancedToggle ? UIColor.whiteColor() : UIColor.blackColor(), forState: .Normal)
+            advancedToggle = !advancedToggle
         default :
-            var titleCapsOrNot = String()
-            titleCapsOrNot = shiftKeyToggle ? title.uppercaseString : title.lowercaseString
-            proxy.insertText(titleCapsOrNot)
+            //automatically uppercase before checking if we are changing the string first, so don't have to check
+            //"A"  and "a" in the switch. Then check our toggle to see if the output should really be capitalized
+            var leetVersion = self.changeToLeet(title.uppercaseString)
+            leetVersion = shiftKeyToggle ? leetVersion.uppercaseString : leetVersion.lowercaseString
+            proxy.insertText(leetVersion)
         }
+    }
+    
+    func changeToLeet(input: String?) -> String {
+        var updatedString = String()
+        switch input! {
+        case "W":
+            updatedString = self.advancedToggle ? "'//" : input!
+        case "E":
+            updatedString = "3"
+        case "R":
+            updatedString = self.advancedToggle ? "|2" : input!
+        case "T":
+            updatedString = "7"
+        case "Y":
+            updatedString = self.advancedToggle ? "`/" : input!
+        case "U":
+            updatedString = self.advancedToggle ? "(_)" : input!
+        case "I":
+            updatedString = self.advancedToggle ? "!" : "1"
+        case "O":
+            updatedString = "0"
+        case "P":
+            updatedString = self.advancedToggle ? "|D" : input!
+        case "A":
+            updatedString = "4"
+        case "S":
+            updatedString = "5"
+        case "D":
+            updatedString = self.advancedToggle ? "|)" : input!
+        case "F":
+            updatedString = self.advancedToggle ? "|=" : input!
+        case "G":
+            updatedString = "6"
+        case "H":
+            updatedString = self.advancedToggle ? "|-|" : input!
+        case "J":
+            updatedString = self.advancedToggle ? "_|" : input!
+        case "K":
+            updatedString = self.advancedToggle ? "|<" : input!
+        case "L":
+            updatedString = self.advancedToggle ? "|_" : input!
+        case "Z":
+            updatedString = self.advancedToggle ? "2" : input!
+        case "X":
+            updatedString = self.advancedToggle ? "><" : input!
+        case "C":
+            updatedString = self.advancedToggle ? "(" : input!
+        case "V":
+            updatedString = self.advancedToggle ? "\\/" : input!
+        case "B":
+            updatedString = self.advancedToggle ? "|3" : input!
+        case "N":
+            updatedString = self.advancedToggle ? "|\\|" : input!
+        case "M":
+            updatedString = self.advancedToggle ? "/\\/\\" : input!
+        default:
+            updatedString = input!
+        }
+        return updatedString
     }
 }

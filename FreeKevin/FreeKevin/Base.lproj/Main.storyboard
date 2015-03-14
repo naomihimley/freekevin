@@ -16,25 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7LN-7B-K8N">
-                                <rect key="frame" x="212" y="63" width="161" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Practice Text Here" translatesAutoresizingMaskIntoConstraints="NO" id="Lbw-Bh-FNe">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="UT5-vP-Y5F"/>
-                                    <constraint firstAttribute="width" constant="161" id="duw-Kc-75P"/>
+                                    <constraint firstAttribute="width" constant="300" id="L0V-5L-s6V"/>
+                                    <constraint firstAttribute="height" constant="300" id="nyh-GC-pKU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="7LN-7B-K8N" secondAttribute="centerY" constant="222" id="4dL-cI-oub"/>
-                            <constraint firstAttribute="centerX" secondItem="7LN-7B-K8N" secondAttribute="centerX" constant="7.5" id="wZG-Ev-JzP"/>
+                            <constraint firstAttribute="centerY" secondItem="Lbw-Bh-FNe" secondAttribute="centerY" id="JVn-he-N9j"/>
+                            <constraint firstAttribute="centerX" secondItem="Lbw-Bh-FNe" secondAttribute="centerX" id="qBt-6A-6m1"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="textField" destination="7LN-7B-K8N" id="opv-CE-1fs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
