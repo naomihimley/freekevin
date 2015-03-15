@@ -9,56 +9,58 @@
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
-    let buttonSpacing = CGFloat(5)
+    let buttonSpacing = CGFloat(4)
     let rowOneButtonTitles = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
     let rowTwoButtonTitles = ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"]
     let rowThreeButtonTitles = ["^", "Z", "X", "C", "V", "B", "N", "M", "🔙"]
-    let rowFourButtonTitles = ["🌐", "space", "return", "advanced"]
+    let rowFourButtonTitles = ["🌐", "space", "return", "l3373r"]
     var shiftKeyToggle = false
     var advancedToggle = false
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
-    
+        //can this be deleted
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setButtonTitles()
+        self.setUpButtons()
     }
     
     //MARK: - UI Setup -
-    
-    //TODO: Update spacing to calculate better and add constraints
 
-    func setButtonTitles () {
+    func setUpButtons () {
         let arrayOfRows = [rowOneButtonTitles, rowTwoButtonTitles, rowThreeButtonTitles, rowFourButtonTitles]
         var previousButton = self.view //for constraints
         var incrementingX = buttonSpacing
-        var incrementingY = buttonSpacing
+        var incrementingY = buttonSpacing * 2
         var rowIndex = 0
         var buttonHeight = CGFloat()
         for row in arrayOfRows {
-            let buttonWidth = (CGRectGetWidth(UIScreen.mainScreen().bounds) - buttonSpacing * CGFloat(row.count)) / CGFloat(row.count)
-            //base the button height on first row width
+            // +1 is for the spacing on the right of the last button
+          let buttonWidth = (CGRectGetWidth(UIScreen.mainScreen().bounds) - buttonSpacing * (CGFloat(row.count) + 1)) / CGFloat(row.count)
+            //TODO: height of the button should be the height of the view divided by the #ofRows - buttonSpacing * #ofRows
             if rowIndex == 0 {
                 buttonHeight = buttonWidth
             }
             for title in row {
                 let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth, height:buttonHeight)
+                //TODO: add constraints here
                 self.view.addSubview(currentButton)
                 currentButton.addTarget(self, action:"didTapButton:", forControlEvents: .TouchUpInside)
                 previousButton = currentButton
                 incrementingX += buttonWidth + buttonSpacing
             }
-            incrementingY += buttonWidth + buttonSpacing * 5
+            incrementingY += CGRectGetHeight(previousButton.frame) + buttonSpacing * 2
             incrementingX = buttonSpacing
+            previousButton = self.view
             rowIndex++
         }
     }
     
     func createButtonWithTitle(title: String, x: CGFloat, y: CGFloat, width:CGFloat, height:CGFloat) -> UIButton {
-        let button = UIButton(frame: CGRectMake(x, y, width, height + buttonSpacing * 3))
+        //update here when correctly calculating height
+        let button = UIButton(frame: CGRectMake(x, y, width, height + buttonSpacing * 4))
         button.layer.cornerRadius = buttonSpacing;
         button.clipsToBounds = true;
         button.setTitle(title, forState: .Normal)
@@ -68,21 +70,6 @@ class KeyboardViewController: UIInputViewController {
     }
     
     //MARK: - Stock Text Methods -
-    
-    override func textWillChange(textInput: UITextInput) {
-        // The app is about to change the document's contents. Perform any preparation here.
-    }
-
-    override func textDidChange(textInput: UITextInput) {
-        var textColor: UIColor
-        var proxy = self.textDocumentProxy as UITextDocumentProxy
-        if proxy.keyboardAppearance == UIKeyboardAppearance.Dark {
-            textColor = UIColor.whiteColor()
-        }
-        else {
-            textColor = UIColor.blackColor()
-        }
-    }
     
     func didTapButton(sender: AnyObject?) {
         let button = sender as UIButton
@@ -101,14 +88,12 @@ class KeyboardViewController: UIInputViewController {
             proxy.insertText(" ")
         case "return" :
             proxy.insertText("\n")
-        case "advanced" :
+        case "l3373r" :
             button.backgroundColor = advancedToggle ? UIColor.grayColor() : UIColor.whiteColor()
             button.setTitleColor(advancedToggle ? UIColor.whiteColor() : UIColor.blackColor(), forState: .Normal)
             advancedToggle = !advancedToggle
         default :
-            //automatically uppercase before checking if we are changing the string first, so don't have to check
-            //"A"  and "a" in the switch. Then check our toggle to see if the output should really be capitalized
-            var leetVersion = self.changeToLeet(title.uppercaseString)
+            var leetVersion = self.changeToLeet(title)
             leetVersion = shiftKeyToggle ? leetVersion.uppercaseString : leetVersion.lowercaseString
             proxy.insertText(leetVersion)
         }
