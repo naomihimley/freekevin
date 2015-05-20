@@ -12,8 +12,8 @@ class KeyboardViewController: UIInputViewController {
     let buttonSpacing = CGFloat(4)
     let rowOneButtonTitles = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
     let rowTwoButtonTitles = ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"]
-    let rowThreeButtonTitles = ["^", "Z", "X", "C", "V", "B", "N", "M", "🔙"]
-    let rowFourButtonTitles = ["🌐", "space", "return", "l3373r"]
+    let rowThreeButtonTitles = ["🔮", "^", "Z", "X", "C", "V", "B", "N", "M", "🔙"]
+    let rowFourButtonTitles = ["🌐", "space", "return",]
     var shiftKeyToggle = false
     var advancedToggle = false
     let keyboardView = UIView()
@@ -138,7 +138,7 @@ class KeyboardViewController: UIInputViewController {
             proxy.insertText(" ")
         case "return" :
             proxy.insertText("\n")
-        case "l3373r" :
+        case "🔮" :
             button.backgroundColor = advancedToggle ? UIColor.grayColor() : UIColor.whiteColor()
             button.setTitleColor(advancedToggle ? UIColor.whiteColor() : UIColor.blackColor(), forState: .Normal)
             advancedToggle = !advancedToggle
