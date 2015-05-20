@@ -16,64 +16,114 @@ class KeyboardViewController: UIInputViewController {
     let rowFourButtonTitles = ["🌐", "space", "return", "l3373r"]
     var shiftKeyToggle = false
     var advancedToggle = false
+    let keyboardView = UIView()
 
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        //can this be deleted
-    }
+//MARK: - View Setup
 
     override func viewDidLoad() {
+        //Kind of a weird hack to be able to use autolayout. Its difficult to get the height of self.inputView until you have added one subview for some reason
+        //So instead of adding a dummy view I just added a whole keyboardView, with constraints of 0 to match self.inputView
         super.viewDidLoad()
+        keyboardView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.inputView.addSubview(keyboardView)
+        var leftConstraint = NSLayoutConstraint(item: keyboardView, attribute: .Left, relatedBy: .Equal, toItem: self.inputView, attribute: .Left, multiplier: 1.0, constant:0)
+        var rightConstraint = NSLayoutConstraint(item: keyboardView, attribute: .Right, relatedBy: .Equal, toItem: self.inputView, attribute: .Right, multiplier: 1.0, constant:0)
+        var bottomConstraint = NSLayoutConstraint(item: keyboardView, attribute: .Bottom, relatedBy: .Equal, toItem: self.inputView, attribute: .Bottom, multiplier: 1.0, constant: 0)
+        var topConstraint = NSLayoutConstraint(item: keyboardView, attribute: .Top, relatedBy: .Equal, toItem: self.inputView, attribute: .Top, multiplier: 1.0, constant: 0)
+        self.inputView.addConstraints([leftConstraint, rightConstraint, bottomConstraint, topConstraint])
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         self.setUpButtons()
     }
     
-    //MARK: - UI Setup -
-
     func setUpButtons () {
         let arrayOfRows = [rowOneButtonTitles, rowTwoButtonTitles, rowThreeButtonTitles, rowFourButtonTitles]
-        var previousButton = self.view //for constraints
         var incrementingX = buttonSpacing
         var incrementingY = buttonSpacing * 2
         var rowIndex = 0
         var buttonHeight = CGFloat()
-        for row in arrayOfRows {
-            // +1 is for the spacing on the right of the last button
-          let buttonWidth = (CGRectGetWidth(UIScreen.mainScreen().bounds) - buttonSpacing * (CGFloat(row.count) + 1)) / CGFloat(row.count)
-            //TODO: height of the button should be the height of the view divided by the #ofRows - buttonSpacing * #ofRows
-            if rowIndex == 0 {
-                buttonHeight = buttonWidth
-            }
-            for title in row {
-                let currentButton = self.createButtonWithTitle(title, x: incrementingX, y: incrementingY, width:buttonWidth, height:buttonHeight)
-                //TODO: add constraints here
-                self.view.addSubview(currentButton)
-                currentButton.addTarget(self, action:"didTapButton:", forControlEvents: .TouchUpInside)
-                previousButton = currentButton
+        var currentRow = [UIButton]() //array of UIButtons in each row
+        
+        for rowTitles in arrayOfRows {
+            let buttonWidth = (CGRectGetWidth(UIScreen.mainScreen().bounds) - buttonSpacing * (CGFloat(rowTitles.count) + 1)) / CGFloat(rowTitles.count)
+            buttonHeight = CGRectGetHeight(keyboardView.frame) / CGFloat(arrayOfRows.count) -  (buttonSpacing * CGFloat(arrayOfRows.count))
+            for title in rowTitles {
+                let currentButton = self.newCreateButtonWithTitle(title)
+                currentButton.frame = CGRectMake(incrementingX, incrementingY, buttonWidth, buttonHeight + buttonSpacing * 2)
+                currentRow.append(currentButton)
                 incrementingX += buttonWidth + buttonSpacing
+                keyboardView.addSubview(currentButton)
             }
-            incrementingY += CGRectGetHeight(previousButton.frame) + buttonSpacing * 2
+            let anyButton = currentRow.first
+            if (keyboardView.frame.height > 0) {
+                self.addIndividualButtonConstraints(currentRow, yVar: incrementingY)
+            }
+            //Next row: increment the Y
+            incrementingY += CGRectGetHeight(anyButton!.frame) + buttonSpacing
+            //and set everything else back to the beginning for the next row
+            currentRow = [UIButton]()
             incrementingX = buttonSpacing
-            previousButton = self.view
             rowIndex++
         }
     }
     
-    func createButtonWithTitle(title: String, x: CGFloat, y: CGFloat, width:CGFloat, height:CGFloat) -> UIButton {
-        //update here when correctly calculating height
-        let button = UIButton(frame: CGRectMake(x, y, width, height + buttonSpacing * 4))
-        button.layer.cornerRadius = buttonSpacing;
-        button.clipsToBounds = true;
+    /// This method adds constraints to a single row of buttons to the keyboardView and to each other
+    ///
+    /// :rowOfButtons: An array of UIButtons in a row
+    /// :yVar: A CGFloat value that represents the Y coordinate within keyboardView this row should be
+    func addIndividualButtonConstraints(rowOfButtons: [UIButton], yVar: CGFloat) {
+        for (index, button) in enumerate(rowOfButtons) {
+//Top
+            var topConstraint = NSLayoutConstraint(item: button, attribute: .Top, relatedBy: .Equal, toItem: keyboardView, attribute: .Top, multiplier: 1.0, constant: yVar)
+//Bottom
+            let bottomConstant = CGRectGetHeight(keyboardView.frame) - yVar - CGRectGetHeight(button.frame) - buttonSpacing
+            var bottomConstraint = NSLayoutConstraint(item: button, attribute: .Bottom, relatedBy: .Equal, toItem: keyboardView, attribute: .Bottom, multiplier: 1.0, constant: -bottomConstant)
+//Width
+            var widthConstraint : NSLayoutConstraint!
+//Right
+            var rightConstraint : NSLayoutConstraint!
+            if (index == rowOfButtons.count - 1) { //it is the last in the row
+                rightConstraint = NSLayoutConstraint(item: button, attribute: .Right, relatedBy: .Equal, toItem: keyboardView, attribute: .Right, multiplier: 1.0, constant: -buttonSpacing)
+                let prevButton = rowOfButtons[index - 1]
+                widthConstraint = NSLayoutConstraint(item: button, attribute: .Width, relatedBy: .Equal, toItem: prevButton, attribute: .Width, multiplier: 1.0, constant:0)
+            }
+            else {
+                let nextButton = rowOfButtons[index + 1]
+                rightConstraint = NSLayoutConstraint(item: button, attribute: .Right, relatedBy: .Equal, toItem: nextButton, attribute: .Left, multiplier: 1.0, constant:  -buttonSpacing)
+                widthConstraint = NSLayoutConstraint(item: button, attribute: .Width, relatedBy: .Equal, toItem: nextButton, attribute: .Width, multiplier: 1.0, constant:0)
+            }
+//Left
+            var leftConstraint : NSLayoutConstraint!
+            if index == 0 { //it is first button in the row
+                leftConstraint = NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: keyboardView, attribute: .Left, multiplier: 1.0, constant: buttonSpacing)
+                
+            }
+            else {
+                let prevButton = rowOfButtons[index - 1]
+                leftConstraint = NSLayoutConstraint(item: button, attribute: .Left, relatedBy: .Equal, toItem: prevButton, attribute: .Right, multiplier: 1.0, constant: buttonSpacing)
+            }
+//Add all constraints to keyboardView
+            keyboardView.addConstraints([leftConstraint, rightConstraint, bottomConstraint, topConstraint, widthConstraint])
+        }
+    }
+    
+    func newCreateButtonWithTitle(title:String) -> UIButton {
+        let button: UIButton = UIButton.buttonWithType(.System) as! UIButton
+        button.layer.cornerRadius = buttonSpacing
+        button.clipsToBounds = true
         button.setTitle(title, forState: .Normal)
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.backgroundColor = UIColor.grayColor()
+        button.addTarget(self, action:"didTapButton:", forControlEvents: .TouchUpInside)
         return button
     }
-    
-    //MARK: - Stock Text Methods -
+ 
+    //MARK: - Translating Text -
     
     func didTapButton(sender: AnyObject?) {
-        let button = sender as UIButton
-        var proxy = textDocumentProxy as UITextDocumentProxy
+        let button = sender as! UIButton
+        var proxy = textDocumentProxy as! UITextDocumentProxy
         let title = button.titleForState(.Normal)!
         switch title {
         case "^" :
