@@ -69,7 +69,6 @@ class KeyboardViewController: UIInputViewController {
     }
     
     /// This method adds constraints to a single row of buttons to the keyboardView and to each other
-    ///
     /// :rowOfButtons: An array of UIButtons in a row
     /// :yVar: A CGFloat value that represents the Y coordinate within keyboardView this row should be
     func addIndividualButtonConstraints(rowOfButtons: [UIButton], yVar: CGFloat) {

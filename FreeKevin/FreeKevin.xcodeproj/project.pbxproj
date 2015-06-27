@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8C67AD011AAD3469008CD804 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD001AAD3469008CD804 /* AppDelegate.swift */; };
-		8C67AD031AAD3469008CD804 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD021AAD3469008CD804 /* HomeViewController.swift */; };
+		8C67AD031AAD3469008CD804 /* FKHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD021AAD3469008CD804 /* FKHomeViewController.swift */; };
 		8C67AD061AAD3469008CD804 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C67AD041AAD3469008CD804 /* Main.storyboard */; };
 		8C67AD081AAD3469008CD804 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C67AD071AAD3469008CD804 /* Images.xcassets */; };
 		8C67AD0B1AAD3469008CD804 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C67AD091AAD3469008CD804 /* LaunchScreen.xib */; };
 		8C67AD171AAD346A008CD804 /* FreeKevinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD161AAD346A008CD804 /* FreeKevinTests.swift */; };
 		8C67AD291AAD4D75008CD804 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD281AAD4D75008CD804 /* KeyboardViewController.swift */; };
 		8C67AD2C1AAD4D75008CD804 /* FreeKevinKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C67AD241AAD4D75008CD804 /* FreeKevinKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8CA9C8B61B3E4AE700D1A27A /* FKPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C8B51B3E4AE700D1A27A /* FKPracticeViewController.swift */; };
+		8CA9C8B81B3E504D00D1A27A /* FKInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C8B71B3E504D00D1A27A /* FKInstructionsViewController.swift */; };
+		8CC1522E1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1522D1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +55,7 @@
 		8C67ACFB1AAD3469008CD804 /* FreeKevin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeKevin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C67ACFF1AAD3469008CD804 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C67AD001AAD3469008CD804 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C67AD021AAD3469008CD804 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8C67AD021AAD3469008CD804 /* FKHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FKHomeViewController.swift; sourceTree = "<group>"; };
 		8C67AD051AAD3469008CD804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C67AD071AAD3469008CD804 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8C67AD0A1AAD3469008CD804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -64,6 +67,9 @@
 		8C67AD281AAD4D75008CD804 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		8C6E474C1AAEAC84002E22B0 /* FreeKevin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FreeKevin.entitlements; sourceTree = "<group>"; };
 		8C6E474D1AAEACDA002E22B0 /* FreeKevinKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FreeKevinKeyboard.entitlements; sourceTree = "<group>"; };
+		8CA9C8B51B3E4AE700D1A27A /* FKPracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKPracticeViewController.swift; sourceTree = "<group>"; };
+		8CA9C8B71B3E504D00D1A27A /* FKInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKInstructionsViewController.swift; sourceTree = "<group>"; };
+		8CC1522D1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKKeyboardInstructionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +122,10 @@
 			children = (
 				8C6E474C1AAEAC84002E22B0 /* FreeKevin.entitlements */,
 				8C67AD001AAD3469008CD804 /* AppDelegate.swift */,
-				8C67AD021AAD3469008CD804 /* HomeViewController.swift */,
+				8C67AD021AAD3469008CD804 /* FKHomeViewController.swift */,
+				8CA9C8B51B3E4AE700D1A27A /* FKPracticeViewController.swift */,
+				8CA9C8B71B3E504D00D1A27A /* FKInstructionsViewController.swift */,
+				8CC1522D1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift */,
 				8C67AD041AAD3469008CD804 /* Main.storyboard */,
 				8C67AD071AAD3469008CD804 /* Images.xcassets */,
 				8C67AD091AAD3469008CD804 /* LaunchScreen.xib */,
@@ -310,7 +319,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C67AD031AAD3469008CD804 /* HomeViewController.swift in Sources */,
+				8C67AD031AAD3469008CD804 /* FKHomeViewController.swift in Sources */,
+				8CA9C8B61B3E4AE700D1A27A /* FKPracticeViewController.swift in Sources */,
+				8CC1522E1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift in Sources */,
+				8CA9C8B81B3E504D00D1A27A /* FKInstructionsViewController.swift in Sources */,
 				8C67AD011AAD3469008CD804 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
