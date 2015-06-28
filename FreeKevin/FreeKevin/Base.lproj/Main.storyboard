@@ -164,7 +164,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Keyboard Instructions" translatesAutoresizingMaskIntoConstraints="NO" id="iDg-7p-F0p">
-                                <rect key="frame" x="50" y="62" width="500" height="494"/>
+                                <rect key="frame" x="36" y="62" width="528" height="518"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -174,10 +174,10 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="biR-x3-N89" firstAttribute="top" secondItem="Tmi-26-7v3" secondAttribute="bottom" id="1Vg-P1-C2p"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iDg-7p-F0p" secondAttribute="trailing" constant="34" id="Mbk-VD-TaV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iDg-7p-F0p" secondAttribute="trailing" constant="20" id="Mbk-VD-TaV"/>
                             <constraint firstItem="iDg-7p-F0p" firstAttribute="top" secondItem="biR-x3-N89" secondAttribute="bottom" constant="8" id="TXm-e9-w7L"/>
-                            <constraint firstItem="aTG-60-Th9" firstAttribute="top" secondItem="iDg-7p-F0p" secondAttribute="bottom" constant="44" id="USi-9L-CBa"/>
-                            <constraint firstItem="iDg-7p-F0p" firstAttribute="leading" secondItem="nAv-K9-573" secondAttribute="leadingMargin" constant="34" id="cl3-td-637"/>
+                            <constraint firstItem="aTG-60-Th9" firstAttribute="top" secondItem="iDg-7p-F0p" secondAttribute="bottom" constant="20" id="USi-9L-CBa"/>
+                            <constraint firstItem="iDg-7p-F0p" firstAttribute="leading" secondItem="nAv-K9-573" secondAttribute="leadingMargin" constant="20" id="cl3-td-637"/>
                             <constraint firstItem="biR-x3-N89" firstAttribute="leading" secondItem="nAv-K9-573" secondAttribute="leadingMargin" constant="4" id="lZn-Co-qjE"/>
                         </constraints>
                     </view>
@@ -214,7 +214,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Practice Text Here" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Lbw-Bh-FNe">
-                                <rect key="frame" x="50" y="62" width="500" height="496"/>
+                                <rect key="frame" x="36" y="62" width="528" height="518"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.012900601689999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -224,11 +224,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Lbw-Bh-FNe" firstAttribute="top" secondItem="1e0-n1-DOD" secondAttribute="bottom" constant="8" id="2IY-9Z-SRV"/>
-                            <constraint firstItem="goy-4e-NQs" firstAttribute="top" secondItem="Lbw-Bh-FNe" secondAttribute="bottom" constant="42" id="7f2-GQ-kvG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lbw-Bh-FNe" secondAttribute="trailing" constant="34" id="KBu-cp-Fha"/>
+                            <constraint firstItem="goy-4e-NQs" firstAttribute="top" secondItem="Lbw-Bh-FNe" secondAttribute="bottom" constant="20" id="7f2-GQ-kvG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lbw-Bh-FNe" secondAttribute="trailing" constant="20" id="KBu-cp-Fha"/>
                             <constraint firstItem="1e0-n1-DOD" firstAttribute="leading" secondItem="W2t-44-F36" secondAttribute="leadingMargin" constant="4" id="lIe-LT-WNk"/>
                             <constraint firstItem="1e0-n1-DOD" firstAttribute="top" secondItem="I6x-cR-AQk" secondAttribute="bottom" id="ntD-jz-zdw"/>
-                            <constraint firstItem="Lbw-Bh-FNe" firstAttribute="leading" secondItem="W2t-44-F36" secondAttribute="leadingMargin" constant="34" id="trY-xj-MRw"/>
+                            <constraint firstItem="Lbw-Bh-FNe" firstAttribute="leading" secondItem="W2t-44-F36" secondAttribute="leadingMargin" constant="20" id="trY-xj-MRw"/>
                         </constraints>
                     </view>
                     <connections>
