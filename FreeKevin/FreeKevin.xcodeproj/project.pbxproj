@@ -16,8 +16,8 @@
 		8C67AD291AAD4D75008CD804 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67AD281AAD4D75008CD804 /* KeyboardViewController.swift */; };
 		8C67AD2C1AAD4D75008CD804 /* FreeKevinKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C67AD241AAD4D75008CD804 /* FreeKevinKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8CA9C8B61B3E4AE700D1A27A /* FKPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C8B51B3E4AE700D1A27A /* FKPracticeViewController.swift */; };
-		8CA9C8B81B3E504D00D1A27A /* FKInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C8B71B3E504D00D1A27A /* FKInstructionsViewController.swift */; };
-		8CC1522E1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1522D1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift */; };
+		8CB614F41B3F9DEB0083CE1F /* FKInstallationInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB614F31B3F9DEB0083CE1F /* FKInstallationInstructionsViewController.swift */; };
+		8CC1522E1B3E62F300567461 /* FKKeyboardUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1522D1B3E62F300567461 /* FKKeyboardUseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +68,8 @@
 		8C6E474C1AAEAC84002E22B0 /* FreeKevin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FreeKevin.entitlements; sourceTree = "<group>"; };
 		8C6E474D1AAEACDA002E22B0 /* FreeKevinKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FreeKevinKeyboard.entitlements; sourceTree = "<group>"; };
 		8CA9C8B51B3E4AE700D1A27A /* FKPracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKPracticeViewController.swift; sourceTree = "<group>"; };
-		8CA9C8B71B3E504D00D1A27A /* FKInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKInstructionsViewController.swift; sourceTree = "<group>"; };
-		8CC1522D1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKKeyboardInstructionsViewController.swift; sourceTree = "<group>"; };
+		8CB614F31B3F9DEB0083CE1F /* FKInstallationInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKInstallationInstructionsViewController.swift; sourceTree = "<group>"; };
+		8CC1522D1B3E62F300567461 /* FKKeyboardUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FKKeyboardUseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +123,9 @@
 				8C6E474C1AAEAC84002E22B0 /* FreeKevin.entitlements */,
 				8C67AD001AAD3469008CD804 /* AppDelegate.swift */,
 				8C67AD021AAD3469008CD804 /* FKHomeViewController.swift */,
+				8CB614F31B3F9DEB0083CE1F /* FKInstallationInstructionsViewController.swift */,
+				8CC1522D1B3E62F300567461 /* FKKeyboardUseViewController.swift */,
 				8CA9C8B51B3E4AE700D1A27A /* FKPracticeViewController.swift */,
-				8CA9C8B71B3E504D00D1A27A /* FKInstructionsViewController.swift */,
-				8CC1522D1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift */,
 				8C67AD041AAD3469008CD804 /* Main.storyboard */,
 				8C67AD071AAD3469008CD804 /* Images.xcassets */,
 				8C67AD091AAD3469008CD804 /* LaunchScreen.xib */,
@@ -321,8 +321,8 @@
 			files = (
 				8C67AD031AAD3469008CD804 /* FKHomeViewController.swift in Sources */,
 				8CA9C8B61B3E4AE700D1A27A /* FKPracticeViewController.swift in Sources */,
-				8CC1522E1B3E62F300567461 /* FKKeyboardInstructionsViewController.swift in Sources */,
-				8CA9C8B81B3E504D00D1A27A /* FKInstructionsViewController.swift in Sources */,
+				8CC1522E1B3E62F300567461 /* FKKeyboardUseViewController.swift in Sources */,
+				8CB614F41B3F9DEB0083CE1F /* FKInstallationInstructionsViewController.swift in Sources */,
 				8C67AD011AAD3469008CD804 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
