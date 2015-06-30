@@ -114,6 +114,7 @@ class KeyboardViewController: UIInputViewController {
         button.setTitle(title, forState: .Normal)
         button.setTranslatesAutoresizingMaskIntoConstraints(false)
         button.backgroundColor = UIColor.grayColor()
+        button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         button.addTarget(self, action:"didTapButton:", forControlEvents: .TouchUpInside)
         return button
     }
